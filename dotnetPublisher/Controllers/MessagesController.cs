@@ -17,7 +17,7 @@ namespace dotnetPublisher.Controllers
 
         private readonly DaprClient daprClient = new DaprClientBuilder().Build();
 
-        //[Topic("kafka-pubsub", "newMessage")]
+        [Topic("kafka-pubsub", "newMessage")]
         [HttpPost]
         public async Task<ActionResult> CreateMessage(Message msg)
         {

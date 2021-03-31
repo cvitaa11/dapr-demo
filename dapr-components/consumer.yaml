@@ -9,7 +9,7 @@ spec:
     app: consumer
   ports:
   - protocol: TCP
-    port: 9090
+    port: 9091
     targetPort: 80
   type: LoadBalancer
 

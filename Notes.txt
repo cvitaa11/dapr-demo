@@ -11,9 +11,7 @@ kubectl get secret --namespace default redis -o jsonpath="{.data.redis-password}
 
 
 
-kubectl run --namespace default redis-client --rm --tty -i --restart='Never' \
-    --env REDIS_PASSWORD=xhC7AOgjTb\
-   --image docker.io/bitnami/redis:6.0.12-debian-10-r3 -- bash
+kubectl run --namespace default redis-client --rm --tty -i --restart='Never' --env REDIS_PASSWORD=xhC7AOgjTb --image docker.io/bitnami/redis:6.0.12-debian-10-r3 -- bash
 
 kafka-console-producer.sh --broker-list my-release-kafka-0.my-release-kafka-headless.default.svc.cluster.local:9092 --topic newMessage
 

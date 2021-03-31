@@ -9,7 +9,7 @@ spec:
   metadata:
       # Kafka broker connection setting
     - name: brokers
-      value: "my-release-kafka-0.my-release-kafka-headless.default.svc.cluster.local:9092"
+      value: "my-release-kafka-0.my-release-kafka-headless.default.svc.cluster.local:9092, my-release-kafka.default.svc.cluster.local:9092"
     - name: authRequired
       value: "false"
     - name: saslUsername

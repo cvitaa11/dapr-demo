@@ -54,7 +54,7 @@ namespace dotnetPublisher
             app.UseCloudEvents();
 
             app.UseEndpoints(endpoints =>
-            {
+            {                
                 endpoints.MapControllers();
             });
         }
