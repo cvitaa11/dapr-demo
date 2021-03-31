@@ -1,7 +1,0 @@
-C:\Users\icvitkovic\Desktop\GitHub\dapr-demo\dotnetPublisher\obj\Debug\net5.0\dotnetPublisher.csprojAssemblyReference.cache
-C:\Users\icvitkovic\Desktop\GitHub\dapr-demo\dotnetPublisher\obj\Debug\net5.0\dotnetPublisher.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\icvitkovic\Desktop\GitHub\dapr-demo\dotnetPublisher\obj\Debug\net5.0\dotnetPublisher.AssemblyInfoInputs.cache
-C:\Users\icvitkovic\Desktop\GitHub\dapr-demo\dotnetPublisher\obj\Debug\net5.0\dotnetPublisher.AssemblyInfo.cs
-C:\Users\icvitkovic\Desktop\GitHub\dapr-demo\dotnetPublisher\obj\Debug\net5.0\dotnetPublisher.csproj.CoreCompileInputs.cache
-C:\Users\icvitkovic\Desktop\GitHub\dapr-demo\dotnetPublisher\obj\Debug\net5.0\dotnetPublisher.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\icvitkovic\Desktop\GitHub\dapr-demo\dotnetPublisher\obj\Debug\net5.0\dotnetPublisher.MvcApplicationPartsAssemblyInfo.cache
