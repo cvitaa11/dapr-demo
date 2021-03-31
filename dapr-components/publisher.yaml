@@ -1,0 +1,42 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: publisher
+  labels:
+    app: publisher
+spec:
+  selector:
+    app: publisher
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 80
+  type: LoadBalancer
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: publisher
+  labels:
+    app: publisher
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: publisher
+  template:
+    metadata:
+      labels:
+        app: publisher
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "publisher"
+        dapr.io/app-port: "80"
+    spec:
+      containers:
+      - name: publisher
+        image: cvitaa11/dotnet-publisher:1.0
+        ports:
+        - containerPort: 80
+        imagePullPolicy: Always
