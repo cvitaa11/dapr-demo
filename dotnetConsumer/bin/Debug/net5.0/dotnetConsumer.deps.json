@@ -31,7 +31,7 @@
   },
   "targets": {
     ".NETCoreApp,Version=v5.0": {
-      "dotnetPublisher/1.0.0": {
+      "dotnetConsumer/1.0.0": {
         "dependencies": {
           "Dapr.AspNetCore": "1.0.0",
           "Dapr.Client": "1.0.0",
@@ -322,10 +322,10 @@
           "WindowsBase": "4.0.0.0"
         },
         "runtime": {
-          "dotnetPublisher.dll": {}
+          "dotnetConsumer.dll": {}
         },
         "compile": {
-          "dotnetPublisher.dll": {}
+          "dotnetConsumer.dll": {}
         }
       },
       "Dapr.AspNetCore/1.0.0": {
@@ -2204,7 +2204,7 @@
     }
   },
   "libraries": {
-    "dotnetPublisher/1.0.0": {
+    "dotnetConsumer/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
