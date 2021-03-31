@@ -1,0 +1,42 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: consumer
+  labels:
+    app: consumer
+spec:
+  selector:
+    app: consumer
+  ports:
+  - protocol: TCP
+    port: 9090
+    targetPort: 80
+  type: LoadBalancer
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: consumer
+  labels:
+    app: consumer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: consumer
+  template:
+    metadata:
+      labels:
+        app: consumer
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "consumer"
+        dapr.io/app-port: "80"
+    spec:
+      containers:
+      - name: consumer
+        image: cvitaa11/dotnet-consumer:1.0
+        ports:
+        - containerPort: 80
+        imagePullPolicy: Always
