@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -22,7 +24,7 @@ namespace dotnetPublisher.Controllers
         [HttpPost]
         public async Task<ActionResult> CreateMessage(Message msg)
         {
-            await daprClient.PublishEventAsync<string>("kafka-pubsub", "newMessage", JsonSerializer.Serialize(msg));
+            await daprClient.PublishEventAsync<StringContent>("kafka-pubsub", "newMessage", new StringContent(JsonSerializer.Serialize(new { key = new Guid(), data = msg}), Encoding.UTF8, "application/json"));
 
             return Ok(new { response = "Successfully published message." });
         }
