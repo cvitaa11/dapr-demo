@@ -10,9 +10,14 @@ Redis password: xhC7AOgjTb
 kubectl get secret --namespace default redis -o jsonpath="{.data.redis-password}" | base64 --decode
 
 
-
+Redis client
 kubectl run --namespace default redis-client --rm --tty -i --restart='Never' --env REDIS_PASSWORD=xhC7AOgjTb --image docker.io/bitnami/redis:6.0.12-debian-10-r3 -- bash
 
+Publish messages to topic
 kafka-console-producer.sh --broker-list my-release-kafka-0.my-release-kafka-headless.default.svc.cluster.local:9092 --topic newMessage
 
+Read all messages for topic
 kafka-console-consumer.sh --bootstrap-server my-release-kafka.default.svc.cluster.local:9092 --topic newMessage --from-beginning
+
+Delete all messages from topic
+kafka-topics.sh --zookeeper my-release-zookeeper.default.svc.cluster.local:2181 --alter --topic newMessage --config retention.bytes=1
