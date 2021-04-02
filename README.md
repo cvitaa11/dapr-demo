@@ -1,4 +1,4 @@
-# Dapr, .NET Core and Kafka on Kubernetes
+# Dapr, .NET Core, Kafka and Redis on Kubernetes
 
 This demo will get you up and running with Dapr in a Kubernetes cluster. You will be deploying ASP.NET Core applications
 
