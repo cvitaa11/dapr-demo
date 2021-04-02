@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -18,11 +19,11 @@ namespace dotnetConsumer.Controllers
 
         [Topic("kafka-pubsub", "newMessage")]
         [HttpPost]
-        public async Task<ActionResult> ConsumeMsgAndStoreInRedis(string msg)
-        {
+        public async Task<ActionResult> ConsumeMsgAndStoreInRedis([FromBody]Message msg)
+        {            
             try
             {
-                await daprClient.SaveStateAsync("statestore", "message", JsonSerializer.Deserialize<Message>(msg));
+                await daprClient.SaveStateAsync("statestore", "message", JsonSerializer.Serialize<Message>(msg));
                 return Ok("Saved state successfully");
             }
             catch (Exception e)
