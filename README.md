@@ -2,6 +2,10 @@
 
 This demo will get you up and running with Dapr in a Kubernetes cluster. You will be deploying ASP.NET Core applications
 
+## Architecture diagram
+
+![Architecture Diagram](Architecture_diagram.jpeg)
+
 ## Prerequisites
 
 This demo requires you to have the following installed on your machine:
