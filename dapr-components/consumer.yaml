@@ -36,7 +36,9 @@ spec:
     spec:
       containers:
       - name: consumer
-        image: cvitaa11/dotnet-consumer:1.0
+        image: docker.pkg.github.com/cvitaa11/dapr-demo/dotnet-consumer:4ed2bc8e62e4fdfab74e9343732fbe0c50a2f8ac
         ports:
         - containerPort: 80
         imagePullPolicy: Always
+      imagePullSecrets: 
+        - name: regcred

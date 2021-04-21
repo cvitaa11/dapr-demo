@@ -36,7 +36,9 @@ spec:
     spec:
       containers:
       - name: publisher
-        image: cvitaa11/dotnet-publisher:1.0
+        image: docker.pkg.github.com/cvitaa11/dapr-demo/dotnet-publisher:4c0c0024f56dab6bec4dadf2b5ec8f7ff4fcba3e
         ports:
         - containerPort: 80
         imagePullPolicy: Always
+      imagePullSecrets: 
+        - name: regcred
