@@ -24,4 +24,4 @@ jobs:
         echo $PAT | docker login https://docker.pkg.github.com -u $CR_USERNAME --password-stdin
     - name: build .NET Consumer Docker image 
       run: |
-        docker build -f ./dotnetConsumer/Dockerfile --pull --rm -t docker.pkg.github.com/${{ secrets.CR_USERNAME }}/dapr-demo/dotnet-consumer:${GITHUB_SHA} .
+        docker build -f ./dotnetConsumer/Dockerfile --pull --rm -t docker.pkg.github.com/${{ secrets.CR_USERNAME }}/dapr-demo/dotnet-consumer:${GITHUB_SHA} ./dotnetConsumer
