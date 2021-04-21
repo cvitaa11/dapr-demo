@@ -25,3 +25,6 @@ jobs:
     - name: build .NET Consumer Docker image 
       run: |
         docker build -f ./dotnetConsumer/Dockerfile --pull --rm -t docker.pkg.github.com/${{ secrets.CR_USERNAME }}/dapr-demo/dotnet-consumer:${GITHUB_SHA} ./dotnetConsumer
+    - name: push .NET Consumer to GitHub Packages
+      run: |
+        docker push docker.pkg.github.com/${{ secrets.CR_USERNAME }}/dapr-demo/dotnet-consumer:${GITHUB_SHA}
