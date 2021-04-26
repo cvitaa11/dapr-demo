@@ -52,7 +52,7 @@ Just like Apache Kafka, easy way to spin up Redis on your Kubernetes cluster is 
 
 ```
 helm repo add bitnami https://charts.bitnami.com/bitnami
-helm install my-release bitnami/redis
+helm install redis bitnami/redis
 ```
 
 To verify the installation of Kafka and Redis run `kubectl get all` and you should see similiar output:
