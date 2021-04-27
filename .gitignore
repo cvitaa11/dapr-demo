@@ -3,6 +3,7 @@
 dotnetConsumer/obj/*
 dotnetPublisher/obj/*
 Notes.txt
+.vscode
 # User-specific files
 *.suo
 *.user
