@@ -97,7 +97,7 @@ kubectl apply -f .\redis.yaml
 To deploy .NET Core publisher and consumer applications make sure you are positioned in the right directory and then apply Kubernetes manifests.
 
 ```
-cd dapr-components
+cd k8s
 kubectl apply -f .\publisher.yaml
 kubectl apply -f .\consumer.yaml
 ```
