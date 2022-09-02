@@ -2,29 +2,29 @@ name: Publisher workflow
 
 on:
   push:
-    branches: [ main ]  
+    branches: [main]
     paths:
       - dotnetPublisher/**
   pull_request:
-    branches: [ main ]
+    branches: [main]
     paths:
       - dotnetPublisher/**
 
-jobs: 
+jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: docker login
-      env:        
-        CR_USERNAME: ${{ secrets.CR_USERNAME }}
-        PAT: ${{ secrets.PAT }}
-      run: |
-        echo $PAT | docker login https://docker.pkg.github.com -u $CR_USERNAME --password-stdin
-    - name: build .NET Publisher Docker image 
-      run: |
-        docker build -f ./dotnetPublisher/Dockerfile --pull --rm -t docker.pkg.github.com/${{ secrets.CR_USERNAME }}/dapr-demo/dotnet-publisher:${GITHUB_SHA} ./dotnetPublisher
-    - name: push .NET Publisher to GitHub Packages
-      run: |
-        docker push docker.pkg.github.com/${{ secrets.CR_USERNAME }}/dapr-demo/dotnet-publisher:${GITHUB_SHA}
+      - name: docker login
+        env:
+          CR_USERNAME: ${{ secrets.CR_USERNAME }}
+          PAT: ${{ secrets.PAT }}
+        run: |
+          echo $PAT | docker login https://docker.pkg.github.com -u $CR_USERNAME --password-stdin
+      - name: build .NET Publisher Docker image
+        run: |
+          docker build -f ./dotnetPublisher/Dockerfile --pull --rm -t ghcr.io/${{ secrets.CR_USERNAME }}/dapr-demo/dotnet-publisher:${GITHUB_SHA} ./dotnetPublisher
+      - name: push .NET Publisher to GitHub Packages
+        run: |
+          docker push ghcr.io/${{ secrets.CR_USERNAME }}/dapr-demo/dotnet-publisher:${GITHUB_SHA}

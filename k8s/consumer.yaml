@@ -8,9 +8,9 @@ spec:
   selector:
     app: consumer
   ports:
-  - protocol: TCP
-    port: 9091
-    targetPort: 80
+    - protocol: TCP
+      port: 9091
+      targetPort: 80
   type: LoadBalancer
 
 ---
@@ -35,10 +35,10 @@ spec:
         dapr.io/app-port: "80"
     spec:
       containers:
-      - name: consumer
-        image: docker.pkg.github.com/cvitaa11/dapr-demo/dotnet-consumer:4ed2bc8e62e4fdfab74e9343732fbe0c50a2f8ac
-        ports:
-        - containerPort: 80
-        imagePullPolicy: Always
-      imagePullSecrets: 
+        - name: consumer
+          image: ghcr.io/cvitaa11/dapr-demo/dotnet-consumer:4ed2bc8e62e4fdfab74e9343732fbe0c50a2f8ac
+          ports:
+            - containerPort: 80
+          imagePullPolicy: Always
+      imagePullSecrets:
         - name: regcred
