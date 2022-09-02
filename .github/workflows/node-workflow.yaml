@@ -1,0 +1,28 @@
+name: Node Reader workflow
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - node-state-mgmt/**
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: docker login
+        env:
+          CR_USERNAME: ${{ secrets.CR_USERNAME }}
+          PAT: ${{ secrets.PAT }}
+        run: |
+          echo $PAT | docker login ghcr.io -u $CR_USERNAME --password-stdin
+      - name: build Node Reader Docker image
+        run: |
+          docker build -f ./node-state-mgmt/Dockerfile --pull --rm -t ghcr.io/${{ secrets.CR_USERNAME }}/dapr-demo/node-state-mgmt:${GITHUB_SHA} ./node-state-mgmt
+      - name: push Node Reader to GitHub Packages
+        run: |
+          docker push ghcr.io/${{ secrets.CR_USERNAME }}/dapr-demo/node-state-mgmt:${GITHUB_SHA}
