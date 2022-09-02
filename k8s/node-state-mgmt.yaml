@@ -1,0 +1,44 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: node-state-mgmt
+  labels:
+    app: node-state-mgmt
+spec:
+  selector:
+    app: node-state-mgmt
+  ports:
+    - protocol: TCP
+      port: 7071
+      targetPort: 3000
+  type: LoadBalancer
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-state-mgmt
+  labels:
+    app: node-state-mgmt
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-state-mgmt
+  template:
+    metadata:
+      labels:
+        app: node-state-mgmt
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "node-state-mgmt"
+        dapr.io/app-port: "3000"
+    spec:
+      containers:
+        - name: node-state-mgmt
+          image: ghcr.io/cvitaa11/dapr-demo/node-state-mgmt:c9b9ec70394c8d6cd7cd8f47829352dd8233f21b
+          ports:
+            - containerPort: 3000
+          imagePullPolicy: Always
+      imagePullSecrets:
+        - name: regcred

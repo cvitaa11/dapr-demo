@@ -6,7 +6,7 @@ const port = 3000;
 async function start() {
   const client = new DaprClient();
 
-  var result = await client.state.get("statestore", "message");
+  var result = await client.state.get("statestore", "consumer||message");
 
   return result;
 }
@@ -14,6 +14,7 @@ async function start() {
 const server = http.createServer((req, res) => {
   start()
     .then((data) => {
+      console.log("data", data);
       res.statusCode = 200;
       res.setHeader("Content-Type", "text/plain");
       res.end(
