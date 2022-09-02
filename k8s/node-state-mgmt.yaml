@@ -36,7 +36,7 @@ spec:
     spec:
       containers:
         - name: node-state-mgmt
-          image: ghcr.io/cvitaa11/dapr-demo/node-state-mgmt:c9b9ec70394c8d6cd7cd8f47829352dd8233f21b
+          image: ghcr.io/cvitaa11/dapr-demo/node-state-mgmt:5bc936e9739c2c6c6f372c89aad8a08a0d144f5e
           ports:
             - containerPort: 3000
           imagePullPolicy: Always
