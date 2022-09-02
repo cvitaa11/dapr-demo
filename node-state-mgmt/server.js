@@ -1,5 +1,5 @@
 const http = require("http");
-const { DaprClient, CommunicationProtocolEnum } = require("@dapr/dapr");
+const { DaprClient } = require("@dapr/dapr");
 
 const port = 3000;
 
