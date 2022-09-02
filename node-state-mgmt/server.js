@@ -1,17 +1,11 @@
 const http = require("http");
 const { DaprClient, CommunicationProtocolEnum } = require("@dapr/dapr");
 
-const host = {
-  address: "127.0.0.1",
-  port: 3000,
-};
+const port = 3000;
 
 async function start() {
-  const client = new DaprClient(
-    host.address,
-    host.port,
-    CommunicationProtocolEnum.HTTP
-  );
+  const client = new DaprClient();
+
   var result = await client.state.get("statestore", "message");
 
   return result;
@@ -35,6 +29,6 @@ const server = http.createServer((req, res) => {
     });
 });
 
-server.listen(host.port, () => {
-  console.log(`Server running on port ${host.port}`);
+server.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
