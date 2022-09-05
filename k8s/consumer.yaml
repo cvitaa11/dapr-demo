@@ -37,6 +37,10 @@ spec:
       containers:
         - name: consumer
           image: ghcr.io/cvitaa11/dapr-demo/dotnet-consumer:4ed2bc8e62e4fdfab74e9343732fbe0c50a2f8ac
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
           ports:
             - containerPort: 80
           imagePullPolicy: Always

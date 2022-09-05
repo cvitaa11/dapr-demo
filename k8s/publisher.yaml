@@ -37,6 +37,10 @@ spec:
       containers:
         - name: publisher
           image: ghcr.io/cvitaa11/dapr-demo/dotnet-publisher:4c0c0024f56dab6bec4dadf2b5ec8f7ff4fcba3e
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
           ports:
             - containerPort: 80
           imagePullPolicy: Always
