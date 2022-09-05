@@ -4,7 +4,7 @@ This demo will get you up and running with Dapr in a Kubernetes cluster. You wil
 
 ## Architecture diagram
 
-![Architecture Diagram](ArchDiagram.png)
+![Architecture Diagram](ArchitectureDiagram.png)
 
 ## Prerequisites
 
